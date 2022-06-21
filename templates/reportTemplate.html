@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Report</title>
+</head>
+
+<body>
+	<div class="container report">
+		<div class="header d-flex justify-content-between align-items-center">
+			<div class="header_title">
+				<p><b>PROCESSED AT:</b></p>
+				<p class="text-success"><b>SVS Medical Care</b></p>
+			</div>
+			<div>
+				<img src="data:image/png;base64,{{ img_string }}" height="100" alt="">
+			</div>
+		</div>
+		<div class="title">
+			<p>REPORT</p>
+		</div>
+		<div class="body">
+			<div class="section1 d-flex justify-content-between align-items-center">
+				<div class="user_info">
+					<div class="info mb-2">
+						<b>ID: </b>
+						<span>{{report.user_id}}</span>
+					</div>
+					<div class="info mb-2">
+						<b>Name: </b>
+						<span>{{user.name}}</span>
+					</div>
+					<div class="info mb-2">
+						<b>Age: </b>
+						<span>{{user.age}}</span>
+					</div>
+					<div class="info mb-2">
+						<b>Phone: </b>
+						<span>{{user.phone}}</span>
+					</div>
+					<div class="info mb-2">
+						<b>Email: </b>
+						<span>{{user.email}}</span>
+					</div>
+				</div>
+				<div class="scan">
+					<div class="text-warning font-weight-bold">Scan Image</div>
+					<img src={{report.scan_image}} height="250px" width="250px" alt="">
+				</div>
+			</div>
+			<div class="section2">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">TEST NAME</th>
+							<th scope="col">TECHNOLOGY</th>
+							<th scope="col">PREDICTION</th>
+							<th scope="col">RESULT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td scope="row">Cyst Prediction</td>
+							<td scope="row">Resnet50</td>
+							<td scope="row">{{report.prediction}}</td>
+							<td scope="row">{{report.class}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="section3">
+				<!-- <div class="reference_range flex-1">
+					<div><b>Reference Range</b></div>
+					<div class="reference_range_box">
+						<p><b>Reference Range for Cyst Prediction</b></p>
+						<p>Below 0.5 : Presence of Cyst</p>
+						<p>Above 0.5 : Normal</p>
+					</div>
+				</div> -->
+				<div class="report_details  flex-1">
+					<div><b>Report Details</b></div>
+					<div class="info">
+						<p><b>Sample Collected On: </b> {{report.datetime}}</p>
+						<p><b>Report Released On: </b> {{today}}</p>
+						<p><b>Report Id: </b> {{report.report_id}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="title">
+				<p>CONDITIONS OF REPORTING</p>
+			</div>
+			<div class="section4">
+				<div class="condition">
+					<ul>
+						<li>The reported results are for information and interpretation of the presence of cyst</li>
+						<li>The reported results are only a prediction and must be confirmed with the doctor</li>
+						<li>Resnet50 is the used prediction algorithm with 90% accuracy. This report should not be
+							considered as a final report and must consulted with an actual doctor.</li>
+						<li>Neither SVS Medical Care or its employees assume any liability,responsibility for any loss
+							or damage that may be incurred by any person as a result of presuming the meaning of the
+							report.</li>
+					</ul>
+				</div>
+			</div>
+			<hr />
+			<footer class="bg-white">
+				<div class="container">
+					<!-- Copyrights -->
+					<div class="bg-light py-4">
+						<p class="font-italic text-muted text-center">SVS Medical Care is an individual entity
+							enterprise focused on
+							improving the medical conditions with help of advance technologies.</p>
+						<div class="d-flex justify-content-between">
+							<p><img src="https://img.icons8.com/ios-filled/344/apple-phone.png" height="50" width="50"
+									alt=""> 8903909831</p>
+							<p><img src="https://img.icons8.com/ios-filled/344/apple-mail.png" height="50" width="50"
+									alt="">
+								svsmedicalcare@gmail.com</p>
+						</div>
+						<div class="container text-center">
+							<p class="text-muted mb-0 py-2">© 2022 SVS Medical Care All rights reserved.</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Prediction</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+	<meta content="Coderthemes" name="author" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- App favicon -->
+	<link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}">
+
+	<!-- dropify -->
+	<link href="{{url_for('static',filename='libs/dropify/dropify.min.css')}}" rel="stylesheet" type="text/css" />
+
+	<!-- Bootstrap Css -->
+	<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" id="bootstrap-stylesheet" rel="stylesheet"
+		type="text/css" />
+	<!-- Icons Css -->
+	<link href="{{url_for('static',filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+	<!-- App Css-->
+	<link href="{{url_for('static',filename='css/app.min.css')}}" id="app-stylesheet" rel="stylesheet"
+		type="text/css" />
+
+</head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="wrapper">
+
+		<!-- Topbar Start -->
+		<div class="navbar-custom">
+			<ul class="list-unstyled topnav-menu float-right mb-0">
+
+				<!-- Navbar right side -->
+
+			</ul>
+
+			<!-- LOGO -->
+			<div class="logo-box">
+				<a href="index.html" class="logo logo-dark text-center">
+					<span class="logo-lg">
+						<img src="{{url_for('static',filename='images/logo-dark.png')}}" alt="" height="100">
+					</span>
+
+				</a>
+				<a href="index.html" class="logo logo-light text-center">
+					<span class="logo-lg">
+						<img src="{{url_for('static',filename='images/logo-light.png')}}" alt="" height="16">
+					</span>
+
+				</a>
+			</div>
+
+			<ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+				<li>
+					<button class="button-menu-mobile disable-btn waves-effect">
+						<i class="fe-menu"></i>
+					</button>
+				</li>
+
+				<li>
+					<h4 class="page-title-main">Prediction</h4>
+				</li>
+
+			</ul>
+
+		</div>
+		<!-- end Topbar -->
+
+		<!-- ========== Left Sidebar Start ========== -->
+		<div class="left-side-menu">
+
+			<div class="slimscroll-menu">
+
+				<!-- User box -->
+				<div class="user-box text-center">
+					<!-- <img src="{{url_for('static',filename='images/users/user-1.jpg')}}" alt="user-img" title="Mat Helme"
+						class="rounded-circle img-thumbnail avatar-md"> -->
+					<div class="dropdown">
+						<a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown"
+							aria-expanded="false">{{admin.name}}</a>
+						<div class="dropdown-menu user-pro-dropdown">
+							<!-- item-->
+							<form action="/logout" method="POST" class="dropdown-item notify-item">
+								<button type="submit"><i class="fe-log-out mr-1"></i>
+									<span type="submit">Logout</span></button>
+							</form>
+						</div>
+					</div>
+					<p class="text-muted">{{admin.email}}</p>
+
+				</div>
+
+				<!--- Sidemenu -->
+				<div id="sidebar-menu">
+
+					<ul class="metismenu" id="side-menu">
+
+						<li class="menu-title">Navigation</li>
+
+						<li>
+							<a href="/">
+								<i class="mdi mdi-view-dashboard"></i>
+								<span> Dashboard </span>
+							</a>
+						</li>
+
+						<li>
+							<a class="text-primary" href="/prediction">
+								<i class="mdi mdi-contrast"></i>
+								<span> Predict </span>
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
+				<!-- End Sidebar -->
+
+				<div class="clearfix"></div>
+
+			</div>
+			<!-- Sidebar -left -->
+
+		</div>
+		<!-- Left Sidebar End -->
+
+
+		<!-- ============================================================== -->
+		<!-- Start Page Content here -->
+		<!-- ============================================================== -->
+
+		<div class="content-page">
+			<div class="content">
+
+				<!-- Start Content-->
+				<div class="container-fluid">
+
+					<!-- Form row -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card-box">
+								<h4 class="m-t-0 header-title">Please provide following details to predict the cyst
+									presence</h4>
+								<p class="text-danger font-weight-bold">Provide only the email and file in case you have
+									already registered</p>
+								<form action="" enctype=multipart/form-data method="POST">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="name" class="col-form-label">Name</label>
+											<input type="text" class="form-control" name="name" id="name"
+												placeholder="John Doe">
+										</div>
+										<div class="form-group col-md-6">
+											<label for="age" class="col-form-label">Age</label>
+											<input type="number" class="form-control" name="age" id="age"
+												placeholder="Age">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="email" class="col-form-label">Email</label>
+										<input type="email" class="form-control" name="email" id="email"
+											placeholder="svs@gmail.com" required>
+									</div>
+
+									<div class="form-group">
+										<label for="phone" class="col-form-label">Phone</label>
+										<input type="phone" class="form-control" name="number" id="number"
+											placeholder="8903909831">
+									</div>
+
+									<div class="form-group">
+										<label for="file" class="col-form-label">Kidney CT Image</label>
+										<input type="file" name="file" class="dropify" data-height="300" required />
+									</div>
+
+									<button type="submit" class="btn btn-primary">Predict</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- end row -->
+
+					{% if msg %}
+					<div class="alert alert-danger text-center" role="alert">
+						<p class="font-weight-bold">{{ msg }}</p>
+					</div>
+					{% endif %}
+
+					{% if report %}
+					<div>
+						<p>Thank you for using SVS Medical Care Cyst Prediction System.</p>
+						<b>Your Results: </b>
+						<div class="result">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">TEST NAME</th>
+										<th scope="col">TECHNOLOGY</th>
+										<th scope="col">PREDICTION</th>
+										<th scope="col">RESULT</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td scope="row">Cyst Prediction</td>
+										<td scope="row">Resnet50</td>
+										<td scope="row">{{report.prediction}}</td>
+										<td scope="row">{{report.class}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					{% endif %}
+
+				</div> <!-- container-fluid -->
+
+			</div> <!-- content -->
+
+			<!-- Footer Start -->
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							2018 - 2022 &copy; SVS
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- end Footer -->
+		</div>
+
+		<!-- ============================================================== -->
+		<!-- End Page content -->
+		<!-- ============================================================== -->
+		<!-- Right Sidebar -->
+		<div class="right-bar">
+			<div class="rightbar-title">
+				<a href="javascript:void(0);" class="right-bar-toggle float-right">
+					<i class="mdi mdi-close"></i>
+				</a>
+				<h4 class="font-16 m-0 text-white">Change Theme</h4>
+			</div>
+			<div class="slimscroll-menu">
+
+				<div class="p-3">
+
+					<div class="mb-2">
+						<img src="{{url_for('static',filename='images/layouts/light.png')}}"
+							class="img-fluid img-thumbnail" alt="">
+					</div>
+					<div class="custom-control custom-switch mb-3">
+						<input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch"
+							checked />
+						<label class="custom-control-label" for="light-mode-switch">Light Mode</label>
+					</div>
+
+					<div class="mb-2">
+						<img src="{{url_for('static',filename='images/layouts/dark.png')}}"
+							class="img-fluid img-thumbnail" alt="">
+					</div>
+					<div class="custom-control custom-switch mb-3">
+						<input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch"
+							data-bsStyle="{{url_for('static',filename='css/bootstrap-dark.min.css')}}"
+							data-appStyle="{{url_for('static',filename='css/app-dark.min.css')}}" />
+						<label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
+					</div>
+				</div>
+			</div> <!-- end slimscroll-menu-->
+		</div>
+		<!-- /Right-bar -->
+
+
+	</div>
+	<!-- END wrapper -->
+
+</body>
+
+</html>

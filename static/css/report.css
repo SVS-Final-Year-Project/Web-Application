@@ -1,0 +1,62 @@
+body {
+	background-color: white !important;
+	padding: 10px;
+}
+
+.report {
+	border: 1px solid black !important;
+	padding: 10px;
+}
+
+/* .report>.header>.logo>img {
+	object-fit: contain;
+} */
+
+.title {
+	background-color: #C787B6;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	height: 25px;
+	margin-bottom: 20px;
+}
+
+.body>.section1,
+.body>.section2,
+.body>.section3 {
+	margin-bottom: 20px;
+}
+
+.body>.section1>.user_info>.info {
+	font-size: 20px;
+}
+
+.body>.section1>.scan>img {
+	object-fit: contain;
+}
+
+.body>.section3>.reference_range>.reference_range_box,
+.body>.section3>.report_details>.info {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.body>.section4>.condition {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: rgb(251, 248, 248);
+}
+
+hr {
+	border-top: 1px dotted red;
+}
+
+div.logo {
+	background-image: url('/static/images/logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100px;
+	width: 100px;
+}
