@@ -31,4 +31,6 @@ With the general access, only the prediction can be made while with the admin ac
 ## Authors
 
 - [@Srivatsan](https://www.github.com/srivatsan2607)
+- @Varushni
+- @Sruthi
 
